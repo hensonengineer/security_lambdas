@@ -5,7 +5,7 @@ def forensic_package(event, context):
     instance_id = event['instance_id']
     
     #pre-build forensic Security Group ID
-    security_group_id = event['security_group_id']
+    security_group_id = ['<your forensic sg id>']
 
     # Create EC2 and EBS clients
     ec2 = boto3.client('ec2')

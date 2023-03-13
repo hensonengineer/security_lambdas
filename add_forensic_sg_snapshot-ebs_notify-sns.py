@@ -1,10 +1,11 @@
 import boto3
 
-def put_security_group_on_ec2_instance_and_create_ebs_snapshot(event, context):
-    # Retrieve the instance ID, security group ID, and snapshot description from the event data
+def forensic_package(event, context):
+    # Get the instance-id from the event
     instance_id = event['instance_id']
+    
+    #pre-build forensic Security Group ID
     security_group_id = event['security_group_id']
-    snapshot_description = event['snapshot_description']
 
     # Create EC2 and EBS clients
     ec2 = boto3.client('ec2')
@@ -12,8 +13,7 @@ def put_security_group_on_ec2_instance_and_create_ebs_snapshot(event, context):
 
     # Modify the security groups for the instance
     ec2.modify_instance_attribute(
-        InstanceId=instance_id,
-        Groups=[security_group_id]
+        InstanceId=instance_id, Groups=[security_group_id]
     )
 
     # Get the list of volumes attached to the instance

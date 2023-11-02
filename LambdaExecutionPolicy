@@ -8,6 +8,7 @@
                 "ec2:StopInstances",
                 "ec2:DescribeInstances",
                 "ec2:CreateSnapshot",
+                "ec2:DescribeVolumes",
                 "ec2:CreateSnapshots",
                 "ec2:ModifyInstanceAttribute",
                 "ec2:CreateTags"
